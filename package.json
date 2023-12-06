@@ -1,0 +1,19 @@
+{
+  "name": "reactjs",
+  "version": "1.0.0",
+  "description": "This is my first react project",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ankivStar/ReactJS.git"
+  },
+  "keywords": [],
+  "author": "Ankit Verma",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  }
+}
