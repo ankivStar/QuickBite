@@ -1,23 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom/client"
 
-const parent = React.createElement(
-    "div", 
-    {id : 'parent'}, 
-    React.createElement(
-        'div', 
-        {id : 'child'}, 
-        [React.createElement('h1', {}, "'I'm Ankit"), React.createElement('h2', {}, "'I'm h2 tag")]
-    )
-);
-
-const heading = React.createElement(
-"h1", 
-{id : "heading", xyz: "jai ho"}, 
-"Hello world from react!");
-
-console.log(parent); // object
+//JSX -HTML-like or xml - like syntax
+// JSX (tranpiled before it reaches the js) - PARCEL - Babel
+const jsxHeading = <h1 id="heading">Namaste React using jsx</h1>
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(parent)
+root.render(jsxHeading)
