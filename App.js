@@ -1956,15 +1956,9 @@ const Body = () => {
         <div className="body">
             <div className="search">Serach</div>  
             <div className="res-container">
-                <RestaurantCard resName = {resList[0]}/>
-                <RestaurantCard resName = {resList[1]}/>
-                <RestaurantCard resName = {resList[2]}/>
-                <RestaurantCard resName = {resList[3]}/>
-                <RestaurantCard resName = {resList[4]}/>
-                <RestaurantCard resName = {resList[5]}/>
-                <RestaurantCard resName = {resList[6]}/>
-                <RestaurantCard resName = {resList[7]}/>
-                <RestaurantCard resName = {resList[8]}/>
+                {
+                    resList.map((restaurant) => ( <RestaurantCard key={restaurant.data.id} resName = {restaurant} />
+                ))} 
             </div>
         </div>
     )
