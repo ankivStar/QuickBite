@@ -5,7 +5,11 @@ import { useState } from "react";
 const Body = () => {
 
     // local state variable - Super powerful variable
-    const [listOfReastaurant, setlistOfRestaurant] = useState(resList)
+    // const [listOfReastaurant, setlistOfRestaurant] = useState(resList)
+
+    const arr = useState(resList);
+    const listOfReastaurant = arr[0];
+    const setlistOfRestaurant = arr[1];
 
     return (
         <div className="body">
