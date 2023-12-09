@@ -18,3 +18,38 @@ Learning Reactjs
 - https 
 - tree shaking - remove unused code
 - different dev and proud bundles
+
+
+# Namaste Food
+
+/**
+ * Header
+ *  - Logo
+ *  - Nav items
+ * 
+ * Body
+ *  - Serach
+ *  - card conatiner
+ *     - restaurantCard
+ *        - img
+ *        - Name of res, star rating, cuisines, delivery time
+ * 
+ * Footer
+ * - copyright
+ * - links
+ * - Address
+ * - Contact
+ * 
+ */
+
+ # Two types of Export/Import 
+
+-Default Export/Import
+
+export default components;
+import Component fromt "path;
+
+- Named Export/Import
+
+export const component
+import {component} from "path";
