@@ -44,7 +44,7 @@ Learning Reactjs
 
  # Two types of Export/Import 
 
--Default Export/Import
+- Default Export/Import
 
 export default components;
 import Component fromt "path;
@@ -53,3 +53,8 @@ import Component fromt "path;
 
 export const component
 import {component} from "path";
+
+# React Hooks
+(Normal JS utility function)
+useState()
+useEffect()
