@@ -22,11 +22,9 @@ const Body = () => {
       setlistOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
-    if(listOfReastaurant.length === 0){
-      return <Shimmer/>
-    }
-
-    return (
+    return listOfReastaurant.length === 0?(
+    <Shimmer/>
+    ):(
         <div className="body">
           <div className="filter">
           <button className="filter-btn" onClick={()=>{
@@ -44,6 +42,6 @@ const Body = () => {
               ))} 
           </div>
         </div>
-    )
+      )
 }
 export default Body;
