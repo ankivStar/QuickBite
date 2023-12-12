@@ -58,3 +58,8 @@ import {component} from "path";
 (Normal JS utility function)
 useState()
 useEffect()
+
+
+#  2 Types of Routing in web apps
+- Client Side Routing
+- Server Side Routing
