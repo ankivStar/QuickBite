@@ -18,15 +18,29 @@ const Body = () => {
     console.log("body rendered");
 
     const fetchData = async  () =>{
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      try{
+        const data = await fetch(
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+        );
 
-      const json = await data.json();
-      console.log(json);
-      const allRestaurant = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-      setlistOfRestaurant(allRestaurant)
-      setListOfFilteredRestaurant(allRestaurant)
+        const json = await data.json()
+
+        async function checkJsonData(jsonData){
+          for(let i = 0; i < jsonData?.data?.cards?.length; i++){
+            let checkData = jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+            if(checkData !== undefined){
+              return checkData;
+            }
+          }
+        } 
+
+        const allRestaurant = await checkJsonData(json);
+        setlistOfRestaurant(allRestaurant)
+        setListOfFilteredRestaurant(allRestaurant)
+      } catch(error) {
+        console.log(error);
+      }
     };
 
     return listOfReastaurant.length === 0?(
