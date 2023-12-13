@@ -8,8 +8,6 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 
-import RestaMenu from "./components/RestaMenu"
-
 const AppLayout = () => {
     return <div className="app">
         <Header/>
