@@ -17,7 +17,7 @@ const RestaurantMenu = () =>{
         try{
             const data = await fetch(MENU_API+resId);
             const json = await data.json();  
-            console.log(json); 
+            // console.log(json); 
             setResInfo(json.data)     
         } catch (error){
             console.log(error);
@@ -41,7 +41,7 @@ const RestaurantMenu = () =>{
             totalItemArray.push(itemCards);
         }
     }
-    console.log(totalItemArray);
+    // console.log(totalItemArray);
 
     return (
         <div className="menu">

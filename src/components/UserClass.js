@@ -8,7 +8,7 @@ class UserClass extends React.Component {
             count : 0,
             count2 : 2
         }
-        console.log(props);
+        // console.log(props);
     }
 
     render(){
