@@ -20,6 +20,11 @@
     margin: 10px;
 }
 
+.body{
+    padding-left: 124px;
+    padding-right: 124px;
+}
+
 .res-container{
     display: flex;
     flex-wrap: wrap;
@@ -27,24 +32,75 @@
 }
 
 .res-card {
-    padding: 5px;
-    margin: 5px;
+    /* padding: 5px; */
+    margin: 15px;
     width: 200px;
-    height: 420px;
+    height: 243px;
+    transition: all 0.2s ease-in-out;
+    border-radius: 15px;
+    position: relative;
 }
 
 .res-card:hover{
     cursor: pointer;
-    border: 1px solid black;
+    border: 0px solid white;
+    transform: scale(0.95);
+}
+
+.card-style{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.res-logo{
+    width: 100%;
+    height : 140px;
+    /* margin: 0; */
+    object-fit:cover;
+    border-radius: 15px;
+}
+
+.res-card > h3 {
+    font-family: Basis_Grotesque_Pro_Bold;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.75);
+}
+
+.res-card > h4{
+    font-family: Basis_Grotesque_Pro_Bold;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.75);
+}
+.res-card > p{
+    font-family: Basis_Grotesque_Pro;
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.6);
+}
+
+.filter{
+    display: flex;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 .search {
     padding: 10px;
 }
 
-.res-logo{
-    width: 100%;
-    height : 140px;
+.search-box{
+    width: 100px;
 }
 
 .filter-btn{
@@ -63,7 +119,7 @@
     padding: 5px;
     margin: 5px;
     width: 200px;
-    height: 420px;
+    height: 243px;
     background-color: #f0f0f0;
 }
 
@@ -71,10 +127,6 @@
     margin: 10px;
     padding: 0 20px;
     cursor: pointer;
-}
-
-.filter{
-    display: flex;
 }
 
 .user-card{

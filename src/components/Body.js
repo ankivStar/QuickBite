@@ -52,12 +52,12 @@ const Body = () => {
                   }}/>
                   <button onClick={()=>{
                      // filter the restaurnt cards and update the UI
-                     const filteredRestaurant = listOfReastaurant.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))
+                     const filteredRestaurant = listOfReastaurant.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))  
 
                      setListOfFilteredRestaurant(filteredRestaurant)
                   }}>Search</button> 
             </div>
-          <button className="filter-btn" onClick={()=>{
+            <button className="filter-btn" onClick={()=>{
             // filter logic here
             const filteredRestaurant = listOfReastaurant.filter((res) => res.info.avgRating > 4);
             setListOfFilteredRestaurant(filteredRestaurant);
