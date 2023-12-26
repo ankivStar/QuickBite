@@ -46,5 +46,3 @@ const RestaurantMenu = () =>{
 }
 
 export default RestaurantMenu;
-
-// arrItem.map((item) => (<li key={item.card.info.id}> {item.card.info.name} - {"Rs."}{item.card.info.price / 100}</li>))
