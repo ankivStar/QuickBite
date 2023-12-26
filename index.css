@@ -36,7 +36,7 @@
     margin: 15px;
     width: 200px;
     height: 243px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
     border-radius: 15px;
     position: relative;
 }
@@ -114,13 +114,30 @@
     justify-content: center;
 } 
 
+.shimmer-input{
+    padding: 1px 7px;
+    width: 40px;
+    margin-left: 2px;
+}
+
+.shimmer-rating{
+    height: 20px;
+    width: 130px;
+    padding: 0px 7px;
+    margin: 10px;
+}
+
+.shimmer-input-style{
+    border: none;
+    background-color: #f0f0f0;
+}
 
 .shimmer-card {
-    padding: 5px;
-    margin: 5px;
+    margin: 15px;
     width: 200px;
     height: 243px;
     background-color: #f0f0f0;
+    border-radius: 15px;
 }
 
 .login {
