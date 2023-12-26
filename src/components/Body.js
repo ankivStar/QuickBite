@@ -55,13 +55,13 @@ const Body = () => {
     <Shimmer/>
   ):
   (
-    <div className="body">
-      <div className="filter flex">
+    <div className="pl-32 pr-32">
+      <div className="filter flex ml-[42px] mr-[42px]">
         <div className="search m-4 p-4">
-          <input type="text" className="border border-solid border-black" value={searchText} onChange={(e)=>{
+          <input type="text" className="border border-solid border-black w-[100px]" value={searchText} onChange={(e)=>{
             setSearchText(e.target.value)
           }}/>
-          <button className="px-4 bg-green-100 m-4 rounded-lg" onClick={()=>{
+          <button className="bg-green-100 m-1 rounded-lg" onClick={()=>{
             // filter the restaurnt cards and update the UI
             const filteredRestaurant = listOfReastaurant.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))  
 
@@ -69,8 +69,8 @@ const Body = () => {
           }}>Search</button> 
         </div>
 
-        <div className=" search m-4 p-4 flex items-center">
-          <button className="px-4 bg-gray-100 rounded-lg" onClick={()=>{
+        <div className=" search m-0 p-0 flex items-center">
+          <button className="bg-gray-100 rounded-lg cursor-pointer" onClick={()=>{
           // filter logic here
           const filteredRestaurant = listOfReastaurant.filter((res) => res.info.avgRating > 4);
           setListOfFilteredRestaurant(filteredRestaurant);
@@ -81,7 +81,7 @@ const Body = () => {
         </div>
         
       </div>  
-      <div className="flex">
+      <div className="flex flex-wrap justify-center">
         {
           listOfFilteredRestaurant.map((restaurant) => ( 
           <Link

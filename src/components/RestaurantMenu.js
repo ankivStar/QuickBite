@@ -28,10 +28,10 @@ const RestaurantMenu = () =>{
     console.log(totalItemArray);
 
     return (
-        <div className="menu">
-            <h1>{name}</h1>
+        <div className="pl-12">
+            <h1 className="text-2xl font-semibold">{name}</h1>
             <p>{cuisines.join(",")} - {costForTwoMessage}</p>
-            <h2>Menu</h2>
+            <h2 className="text-xl font-semibold">Menu</h2>
             <ul>
                 {totalItemArray.map((arrItem)=>(
                     arrItem.map((item)=>(
