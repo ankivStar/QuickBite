@@ -25,7 +25,23 @@ const RestaurantCard = (props) => {
             <p className="whitespace-nowrap overflow-hidden overflow-ellipsis pl-3 m-0 leading-5">{sla.deliveryTime} minutes</p>
 
         </div>
-    )
+    ) 
 }
+
+//Higher order component
+
+// input - RestaurantCard => RestaurantCardPromoted
+
+export const withPromotedLabel = (RestaurantCard) =>{
+    return (props)=>{
+        return (
+            <div>
+                <label>Promoted</label>
+                <RestaurantCard {...props}/>
+            </div>
+        )
+    }
+}
+
 
 export default RestaurantCard;
