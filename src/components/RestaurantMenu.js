@@ -1,6 +1,8 @@
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import { useState } from "react";
 
 const RestaurantMenu = () =>{
 
@@ -8,39 +10,32 @@ const RestaurantMenu = () =>{
 
     const resInfo = useRestaurantMenu(resId);
 
+    const [showIndex, setShowIndex] = useState(null);
+
     if(resInfo === null) return <Shimmer/>
     
     // console.log(itemCards);
-    const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
+    const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info; 
 
-
-    // let {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card?.card  
-
-    let totalItemArray = [];
     const allItemCards = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
-    for(let index = 0; index < allItemCards.length; index++){
-        let {itemCards} = allItemCards[index]?.card?.card;
+    console.log(allItemCards);
+   
+    const categories = allItemCards.filter((c)=> c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
-        if(itemCards !== undefined){
-            totalItemArray.push(itemCards);
-        }
-    }
-    console.log(totalItemArray);
+    console.log(categories);
 
     return (
-        <div className="pl-12">
-            <h1 className="text-2xl font-semibold">{name}</h1>
-            <p>{cuisines.join(",")} - {costForTwoMessage}</p>
-            <h2 className="text-xl font-semibold">Menu</h2>
-            <ul>
-                {totalItemArray.map((arrItem)=>(
-                    arrItem.map((item)=>(  
-                        <li key={item.card.info.id}>
-                            {item.card.info.name} - {"Rs."}{item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100}
-                        </li>
-                    ))
-                ))}
-            </ul>
+        <div className="text-center">
+            <h1 className="text-2xl my-6 font-bold">{name}</h1>
+            <p className="font-bold text-lg">{cuisines.join(",")} - {costForTwoMessage}</p>
+            {/*categories accordian */}
+                {categories.map((category, index)=>( <RestaurantCategory 
+                    key={category?.card?.card?.title} 
+                    data = {category?.card?.card}
+                    showItems = {index === showIndex  ? true : false}
+                    setShowIndex = {(showItems)=>setShowIndex(showItems ? index : null)}
+                />
+            ))}
         </div>
     )
 }
