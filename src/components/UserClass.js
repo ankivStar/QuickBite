@@ -1,4 +1,5 @@
 import React from "react"
+import UserContext from "../utils/userContext";
 
 class UserClass extends React.Component {
 
@@ -44,6 +45,12 @@ class UserClass extends React.Component {
                 <h2>Name : {name}</h2>
                 <h3>Location : {location}</h3>
                 <h4>Contact : abc@ankitverma</h4>
+                <div>
+                    LoggedInUser
+                    <UserContext.Consumer>
+                        {({loggedInUser})=><h1 className="font-bold">{loggedInUser}</h1>}
+                    </UserContext.Consumer>
+                </div>
             </div>
         )
     }

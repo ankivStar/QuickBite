@@ -1,9 +1,10 @@
 import RestaurantCard , {withPromotedLabel} from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer.js";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import { MAIN_API } from "../utils/constants.js";
+import UserContext from "../utils/userContext.js";
  
 const Body = () => {
 
@@ -37,7 +38,7 @@ const Body = () => {
         }
       } 
 
-      const allRestaurant = await checkJsonData(json);
+      const allRestaurant = await checkJsonData(json); 
       setlistOfRestaurant(allRestaurant)
       setListOfFilteredRestaurant(allRestaurant)
     } catch(error) {
@@ -52,6 +53,8 @@ const Body = () => {
       Looks like you are offline !! Please check your internet connection!
     </h1>
   )
+
+  const {loggedInUser, setUserName} = useContext(UserContext)
 
   return listOfReastaurant.length === 0?
   (
@@ -81,6 +84,10 @@ const Body = () => {
           >
           Top Rated Restaurant 
           </button>
+        </div>
+        <div className=" search m-4 p-4 flex items-center">
+          <label>UserName</label>
+          <input className="border border-black px-2" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)}/>
         </div>
         
       </div>  
