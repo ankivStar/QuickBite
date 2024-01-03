@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
         costForTwo,
         sla
     } = resName?.info;
-
+ 
     return (
         <div className="m-4 w-[200px] h-[264px] rounded-2xl transition-all duration-100 ease-in-out hover:cursor-pointer transform hover:scale-95 bg-white">
             <img

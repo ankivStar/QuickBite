@@ -3,6 +3,7 @@ import {LOGO_URL} from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [btnName, setbtnName] = useState("Login");
@@ -11,11 +12,15 @@ const Header = () => {
 
     useEffect(()=>{
     }, [btnName])
+
+    // subscribing to the store using a selector
+    const cartItems = useSelector((store)=>store.cart.items); 
+    console.log(cartItems);
     
     return (
-        <div className="flex justify-between bg-pink-100 shadow-lg m-2">
-            <div className="logo-container"> 
-                <img className="w-36" src={LOGO_URL}/>
+        <div className="flex items-center justify-between bg-pink-100 shadow-lg m-2 h-28"> 
+            <div className="logo-container w-[144px]"> 
+                <img className="w-[144px]" src={LOGO_URL}/>
             </div>
             <div className="flex items-center">
                 <ul className="flex p-4 m-4">
@@ -26,11 +31,12 @@ const Header = () => {
                     <li className="px-4">
                         <Link to="/about">About us</Link></li>
                     <li className="px-4">
-                       <Link to="/contact">Contact us</Link></li>
+                    <Link to="/contact">Contact us</Link></li>
                     <li className="px-4">
-                       <Link to="/grocery">Grocery</Link></li>
-                    <li className="px-4">Cart</li>
-                    <button className="px-4" onClick={()=>{btnName === "Login" ?setbtnName("Logout") : setbtnName("Login")}}>{btnName}</button>
+                    <Link to="/grocery">Grocery</Link></li>
+                    <li className="px-4">
+                    <Link to="/cart">Cart-({cartItems.length} items)</Link></li>
+                    <button className="px-4 border border-black" onClick={()=>{btnName === "Login" ?setbtnName("Logout") : setbtnName("Login")}}>{btnName}</button>
                     <li className="px-4">{loggedInUser}</li>
                 </ul>
             </div>

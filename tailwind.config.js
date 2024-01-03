@@ -5,7 +5,11 @@ module.exports = {
     extend: {
       fontFamily : {
         'Basic' : ['Basis_Grotesque_Pro_Bold'],
+        'desColor' : ['ProximaNova,arial,Helvetica Neue,sans-serif']
       },
+      colors: {
+      swiggyDes : 'var(--color-primary)'
+    },
     },
   },
   plugins: [],
