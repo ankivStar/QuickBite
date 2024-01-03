@@ -4,8 +4,8 @@
   "description": "This is my first react project",
   "scripts": {
     "start": "parcel index.html",
-    "build": "npm run build",
-    "test": "jest"
+    "build": "parcel build index.html",
+    "test": "parcel build -D index.html"
   },
   "repository": {
     "type": "git",
