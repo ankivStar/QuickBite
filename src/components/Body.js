@@ -4,7 +4,6 @@ import Shimmer from "./Shimmer.js";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus.js";
 import { MAIN_API } from "../utils/constants.js";
-import UserContext from "../utils/userContext.js";
  
 const Body = () => {
 
@@ -54,20 +53,18 @@ const Body = () => {
     </h1>
   )
 
-  const {loggedInUser, setUserName} = useContext(UserContext)
-
   return listOfReastaurant.length === 0?
   (
     <Shimmer/>
   ):
   (
-    <div className="pl-32 pr-32">
-      <div className="filter flex ml-[42px] mr-[42px]">
-        <div className="search m-4 p-4">
-          <input type="text" className="border border-solid border-black w-[100px]" value={searchText} onChange={(e)=>{
+    <div className="w-11/12 max-w-[1143px] mx-auto">
+      <div className="flex justify-center">
+        <div className="search p-4 m-4">
+          <input type="text" className="px-2 py-1 border border-solid border-black bg-slate-300 text-black rounded-lg" value={searchText} onChange={(e)=>{
             setSearchText(e.target.value)
           }}/>
-          <button className="bg-green-100 m-1 rounded-lg" onClick={()=>{
+          <button className="px-4 py-2 bg-green-200 m-4 rounded-lg" onClick={()=>{
             // filter the restaurnt cards and update the UI
             const filteredRestaurant = listOfReastaurant.filter((res)=> res.info.name.toLowerCase().includes(searchText.toLowerCase()))  
 
@@ -75,8 +72,8 @@ const Body = () => {
           }}>Search</button> 
         </div>
 
-        <div className=" search m-0 p-0 flex items-center">
-          <button className="bg-gray-100 rounded-lg cursor-pointer" onClick={()=>{
+        <div className=" search m-4 p-4 flex items-center">
+          <button className="px-2 py-1 border border-solid border-black bg-gray-300 text-black rounded-lg cursor-pointer" onClick={()=>{
           // filter logic here
           const filteredRestaurant = listOfReastaurant.filter((res) => res.info.avgRating > 4);
           setListOfFilteredRestaurant(filteredRestaurant);
@@ -84,12 +81,7 @@ const Body = () => {
           >
           Top Rated Restaurant 
           </button>
-        </div>
-        <div className=" search m-4 p-4 flex items-center">
-          <label>UserName</label>
-          <input className="border border-black px-2" value={loggedInUser} onChange={(e)=> setUserName(e.target.value)}/>
-        </div>
-        
+        </div>  
       </div>  
       <div className="flex flex-wrap justify-center">
         {

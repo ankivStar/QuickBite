@@ -2,28 +2,38 @@ import { useState, useEffect, useContext} from "react";
 import {LOGO_URL} from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/userContext";
+// import UserContext from "../utils/userContext";
 import { useSelector } from "react-redux";
 
 const Header = () => {
     const [btnName, setbtnName] = useState("Login");
     const onlineStatus = useOnlineStatus();
-    const {loggedInUser} = useContext(UserContext);
+    const [isMenuOpen, setMenuOpen] = useState(true);
+    // const {loggedInUser} = useContext(UserContext);
+
+    const toggleMenu = () => {
+        setMenuOpen(!isMenuOpen);
+    }
 
     useEffect(()=>{
     }, [btnName])
 
     // subscribing to the store using a selector
     const cartItems = useSelector((store)=>store.cart.items); 
-    console.log(cartItems);
     
+
     return (
         <div className="sticky top-0 left-0 right-0 z-50 bg-green-300 shadow-lg sm:bg-yellow-200 lg:bg-green-200">
-            <div className="flex items-center justify-between bg-pink-100 shadow-lg"> 
+            <div>
+                <button className="sm:hidden " onClick={toggleMenu}>
+                <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div className="flex items-center justify-between "> 
                 <div className="logo-container w-[144px]"> 
-                    <img className="w-[144px]" src={LOGO_URL}/>
+                    <img className="w-full" src={LOGO_URL}/>
                 </div>
-                <div className="flex items-center">
+                <div className={`flex items-center ${isMenuOpen ? "block" : "hidden"}`}>
                     <ul className="flex p-4 m-4">
                         <li className="px-4">
                             Online Status : {onlineStatus ? "✅" : "🔴"}</li>
@@ -38,7 +48,6 @@ const Header = () => {
                         <li className="px-4">
                         <Link to="/cart">Cart-({cartItems.length} items)</Link></li>
                         <button className="px-4 border border-black" onClick={()=>{btnName === "Login" ?setbtnName("Logout") : setbtnName("Login")}}>{btnName}</button>
-                        <li className="px-4">{loggedInUser}</li>
                     </ul>
                 </div>
             </div>
@@ -47,3 +56,5 @@ const Header = () => {
 };
 
 export default Header;
+
+{/* <i class="fas fa-bars" onclick="openmenu"></i> */}
