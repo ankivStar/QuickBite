@@ -17,16 +17,16 @@ const RestaurantMenu = () =>{
     if(resInfo === null) return <Shimmer/>
     
     // console.log(itemCards);
-    const {name, cuisines, costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info; 
+    const {name, cuisines, costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info; 
 
-    const allItemCards = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    const allItemCards = resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
     // console.log(allItemCards);
    
     // const categories = allItemCards.filter((c)=> (c.card?.card?.["@type"] === ("type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")));
 
     const categories = allItemCards.filter((c)=> (c.card?.card?.["@type"] === (TYPE)) || (c.card?.card?.["@type"] === (NESTED_TYPE)));
 
-    console.log(categories);
+    // console.log(categories);
 
     return ( 
         <div className="text-center">
