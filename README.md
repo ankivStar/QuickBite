@@ -1,5 +1,11 @@
-# ReactJS
-Learning Reactjs 
+# QuickBite
+A food app using
+- Reactjs
+- React-Hooks
+- React-Router
+- Redux-Toolkit
+- Taiwind CSS
+- SwiggyAPI 
 
 # Parcel
 - Dev Build
