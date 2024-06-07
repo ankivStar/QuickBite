@@ -30,7 +30,7 @@ const Header = () => {
                 </button>
             </div>
             <div className="flex items-center justify-between "> 
-                <div className="logo-container w-[144px]"> 
+                <div className="w-[144px]"> 
                     <img className="w-full" src={LOGO_URL}/>
                 </div>
                 <div className={`flex items-center ${isMenuOpen ? "block" : "hidden"}`}>

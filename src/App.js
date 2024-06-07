@@ -15,16 +15,6 @@ import Cart from "./components/Cart";
 const Grocery = lazy(()=> import("./components/Grocery"));
 
 const AppLayout = () => {
-
-    const [userName, setUserName] = useState();
- 
-    useEffect(()=>{
-        const data = {
-            name : "Ankit Verma"
-        }
-        setUserName(data.name)
-    }, [])
-
     return (  
         <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser : userName, setUserName}}>
