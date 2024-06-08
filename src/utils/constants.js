@@ -19,4 +19,6 @@ export const TYPE =
 export const NESTED_TYPE = 
     "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory"
 
+export const PROFILE_PHOTO = "https://res-console.cloudinary.com/dbnyhxzwi/thumbnails/v1/image/upload/v1717826414/aW1yZXNpemVyLTE3MTQwMzYyNDEzNDJfa29hbWdw/drilldown"
+
 //named export

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext} from "react";
+import { useState, useEffect} from "react";
 import {LOGO_URL} from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
